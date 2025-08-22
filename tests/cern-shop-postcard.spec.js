@@ -1,6 +1,6 @@
-import { test } from '@playwright/test';
-import { PostcardPage } from './pages/PostcardPage';
-import { ShopPage } from './pages/shopPage';
+const { test, expect } = require('@playwright/test');
+const { PostcardPage } = require('./pages/PostcardPage');
+const { ShopPage } = require('./pages/ShopPage');
 
 test('CERN shop - filter postcards and verify Atlas postcard price', async ({ page }) => {
     test.setTimeout(120000); // Increase test timeout to 2 minutes
@@ -16,4 +16,3 @@ test('CERN shop - filter postcards and verify Atlas postcard price', async ({ pa
     await shopPage.clickItem('Atlas postcard');
     await postcardPage.verifyPrice('1.5 CHF');
 });
-
